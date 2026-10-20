@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1425" />
+  <title>TextLens — Similarity Workspace</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">◈</div><div>text<span>lens</span><small>WRITING INTELLIGENCE</small></div></div>
+      <p class="section-label">WORKSPACE</p>
+      <nav><a class="nav-active" href="#workspace"><span>▦</span> Similarity checker</a><a href="#how-it-works"><span>◎</span> How it works</a></nav>
+      <div class="side-bottom"><div class="privacy-icon">♧</div><strong>Private by design</strong><p>Comparisons are processed for this request only. No database or account required.</p><div class="status"><i></i> Local comparison engine</div></div>
+    </aside>
+    <main id="workspace">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b>Similarity checker</b></div><div class="topright"><span class="version">TEXTLENS / V1.0</span><span class="avatar">TL</span></div></header>
+      <div class="content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> TEXT ANALYSIS TOOLKIT</div>
+        <div class="hero"><div><h1>Similarity <em>checker.</em></h1><p>Compare two pieces of writing. Understand the overlap.<br class="desktop-only"> Make your next draft more original.</p></div><div class="hero-decoration">⌁<div class="hero-decoration-small">✳</div></div></div>
+        <div class="steps"><div><span class="stepnum">01</span><span>Paste your texts</span></div><span class="step-arrow">→</span><div><span class="stepnum">02</span><span>Run analysis</span></div><span class="step-arrow">→</span><div><span class="stepnum">03</span><span>Review your results</span></div></div>
+        <section class="workspace-card"><div class="card-heading"><div><h2>Document comparison</h2><p>Add your source and comparison text below to get started.</p></div><span class="pill"><span>●</span> TWO-DOCUMENT MODE</span></div>
+          <div class="editors"><div class="editor"><div class="editor-header"><div class="doc-label"><span class="doc-icon">▤</span><div><strong>Document A</strong><small>Original / reference text</small></div></div><button class="subtle" id="sampleA" type="button">Try sample</button></div><textarea id="textA" maxlength="100000" placeholder="Paste or type your original text here…" aria-label="Document A"></textarea><div class="editor-footer"><span id="wordsA">0 words</span><span id="charsA">0 / 100,000 characters</span></div></div>
+          <div class="editor"><div class="editor-header"><div class="doc-label"><span class="doc-icon accent">▤</span><div><strong>Document B</strong><small>Text to compare</small></div></div><button class="subtle" id="sampleB" type="button">Try sample</button></div><textarea id="textB" maxlength="100000" placeholder="Paste or type the text you'd like to compare…" aria-label="Document B"></textarea><div class="editor-footer"><span id="wordsB">0 words</span><span id="charsB">0 / 100,000 characters</span></div></div></div>
+          <div class="actionbar"><div class="hint"><span>✧</span> Your text isn't saved to a database.</div><div class="actions"><button id="clearBtn" class="clear" type="button">Clear all</button><button id="compareBtn" class="primary" type="button"><span>◈</span> Analyse similarity <span class="arrow">↗</span></button></div></div><div class="error" id="error" role="alert" hidden></div>
+        </section>
+        <section id="results" class="results" hidden aria-live="polite"><div class="results-title"><div><span class="eyebrow">ANALYSIS COMPLETE</span><h2>Comparison report</h2></div><button id="exportBtn" class="outline" type="button">↓ Export report</button></div><div class="result-grid"><article class="score-card"><span class="mini-label">OVERALL TEXT SIMILARITY</span><div class="donut" id="donut"><div class="donut-inner"><strong id="score">0%</strong><small>similarity</small></div></div><strong id="scoreHeading">Analysis result</strong><p id="scoreDesc">The similarity between your documents.</p></article><article class="metrics-card"><span class="mini-label">COMPARISON BREAKDOWN</span><div class="metric"><div><span>Document A · matched phrase coverage</span><b id="coverageA">0%</b></div><div class="bar"><span id="barA"></span></div></div><div class="metric"><div><span>Document B · matched phrase coverage</span><b id="coverageB">0%</b></div><div class="bar"><span id="barB"></span></div></div><div class="two-metrics"><div><small>SHARED 4-WORD PHRASES</small><strong id="phraseCount">0</strong></div><div><small>WORDS ANALYSED</small><strong id="totalWords">0</strong></div></div><div class="small-note">Similarity and phrase coverage are different measurements.</div></article></div><article class="matches-card"><div class="matches-head"><div><h3>Matching phrases</h3><p>Identical sequences of four words found in both texts.</p></div><span class="label-soft" id="matchLabel">0 found</span></div><div id="phrases" class="phrases"></div></article><p class="disclaimer">ⓘ Results compare only the two supplied texts. They are not a Turnitin score, plagiarism judgement, web search, or AI-writing detector. Common wording can generate matches.</p></section>
+        <section id="how-it-works" class="how"><div class="how-title"><span class="eyebrow">BEHIND THE ANALYSIS</span><h2>Built on the essentials.</h2></div><div class="how-grid"><div><span class="feature-icon">⌘</span><h3>Text preprocessing</h3><p>Normalises casing and tokenises the submitted text for consistent comparisons.</p></div><div><span class="feature-icon">▥</span><h3>TF-IDF vectors</h3><p>Weights terms and adjacent word pairs to capture their importance in each document.</p></div><div><span class="feature-icon">◎</span><h3>Cosine similarity</h3><p>Measures how closely the document vectors align, displayed as a score out of 100.</p></div></div></section>
+        <footer><span>◈ textlens</span><span>Made for transparent writing analysis · Not affiliated with Turnitin</span></footer>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
